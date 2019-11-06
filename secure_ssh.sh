@@ -1,5 +1,6 @@
 # xshell  
 #! /bin/bash
+#The IP that the password of login server is typed wrong 5 times, prohibit login
 cat /var/log/secure|awk '/Failed/{print $(NF-3)}'|sort|uniq -c|awk '{print $2"="$1;}' > /var/log/black.txt
 for i in `cat  /var/log/black.txt`
 do
